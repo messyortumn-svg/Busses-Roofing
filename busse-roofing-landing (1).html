@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Busse Roofing – Premium Residential & Commercial Roofing in Central Texas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0d1b2a;
+    --dark:   #111820;
+    --mid:    #1c2d3f;
+    --accent: #d4821a;
+    --gold:   #f0a830;
+    --white:  #ffffff;
+    --off:    #f5f3ef;
+    --text:   #2c3e50;
+    --muted:  #7a8a99;
+    --radius: 6px;
+    --shadow: 0 8px 40px rgba(0,0,0,.18);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--navy);
+    color: #b8c8d8;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .03em;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    gap: 16px;
+  }
+  .topbar a { color: #b8c8d8; transition: color .2s; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar-left { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .topbar-left span { display: flex; align-items: center; gap: 6px; }
+  .topbar-right .cta-pill {
+    background: var(--accent);
+    color: var(--white);
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: .78rem;
+    font-weight: 600;
+    transition: background .2s;
+    white-space: nowrap;
+  }
+  .topbar-right .cta-pill:hover { background: var(--gold); }
+
+  /* ── STICKY HEADER ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(13,27,42,.97);
+    backdrop-filter: blur(12px);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    transition: box-shadow .3s;
+  }
+  .header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.45); }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; }
+  .logo-icon { width: 46px; height: 46px; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .logo-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); font-weight: 900; letter-spacing: .01em; }
+  .logo-sub { font-size: .65rem; color: var(--gold); letter-spacing: .15em; text-transform: uppercase; font-weight: 600; }
+  nav { display: flex; align-items: center; gap: 28px; }
+  nav a { color: #c8d8e8; font-size: .88rem; font-weight: 500; letter-spacing: .02em; transition: color .2s; position: relative; }
+  nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width .25s; }
+  nav a:hover { color: var(--white); }
+  nav a:hover::after { width: 100%; }
+  .header-cta {
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-size: .88rem;
+    font-weight: 600;
+    transition: background .2s, transform .15s;
+    white-space: nowrap;
+  }
+  .header-cta:hover { background: var(--gold); transform: translateY(-1px); }
+  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: .3s; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    background: linear-gradient(135deg, #0a1520 0%, #0d1b2a 40%, #152234 70%, #1c2d3f 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0; opacity: .04;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,.3) 40px, rgba(255,255,255,.3) 41px);
+  }
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,130,26,.15) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 5%;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212,130,26,.15);
+    border: 1px solid rgba(212,130,26,.3);
+    color: var(--gold);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before { content: '★'; font-size: .7rem; }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 900;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #9ab0c5;
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 6px 20px rgba(212,130,26,.4);
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(212,130,26,.5); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,.25);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(240,168,48,.08); }
+  .hero-badges {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 8px 14px;
+    border-radius: 4px;
+    color: #b8c8d8;
+    font-size: .8rem;
+    font-weight: 500;
+  }
+  .hero-badge .icon { font-size: 1.1rem; }
+
+  /* Offer Card */
+  .offer-card {
+    background: linear-gradient(145deg, #1c2d3f, #243548);
+    border: 1px solid rgba(212,130,26,.3);
+    border-radius: 12px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .offer-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+  }
+  .offer-tag {
+    background: var(--accent);
+    color: var(--white);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .offer-card h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 10px; }
+  .offer-card p { color: #8fadc5; font-size: .9rem; line-height: 1.6; margin-bottom: 24px; }
+  .offer-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--gold); font-weight: 900; display: block; line-height: 1; }
+  .stat-label { font-size: .73rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; display: block; }
+  .offer-btn {
+    display: block;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    color: var(--white);
+    padding: 14px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: .95rem;
+    transition: opacity .2s, transform .15s;
+  }
+  .offer-btn:hover { opacity: .9; transform: translateY(-1px); }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 90px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .section-title em { color: var(--accent); font-style: normal; }
+  .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 600px; }
+  .section-header { margin-bottom: 56px; }
+  .section-header.centered { text-align: center; }
+  .section-header.centered .section-sub { margin: 0 auto; }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── SERVICES ── */
+  .services { background: var(--off); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    transition: transform .25s, box-shadow .25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,.13); }
+  .service-img {
+    height: 210px;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-img-bg {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+  }
+  .service-card:hover .service-img-bg { transform: scale(1.05); }
+  .service-icon-badge {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--accent);
+    color: var(--white);
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .service-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+  .service-body h3 { font-size: 1.25rem; color: var(--navy); margin-bottom: 10px; }
+  .service-body p { font-size: .9rem; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: .88rem;
+    transition: gap .2s;
+  }
+  .service-link:hover { gap: 10px; }
+
+  /* ── WHY CHOOSE ── */
+  .why { background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .why-features { display: grid; gap: 28px; }
+  .why-item { display: flex; gap: 18px; }
+  .why-icon {
+    width: 54px; height: 54px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(212,130,26,.12), rgba(212,130,26,.05));
+    border: 1px solid rgba(212,130,26,.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+  .why-item h4 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .why-item p { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+  .why-image-wrap {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .why-image-wrap img { width: 100%; height: 480px; object-fit: cover; }
+  .why-badge-over {
+    position: absolute;
+    bottom: 24px; left: 24px;
+    background: rgba(13,27,42,.92);
+    border: 1px solid rgba(212,130,26,.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: var(--white);
+  }
+  .why-badge-over .num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); font-weight: 900; display: block; line-height: 1; }
+  .why-badge-over .lbl { font-size: .78rem; color: #9ab0c5; }
+
+  /* ── REVIEWS ── */
+  .reviews { background: var(--navy); }
+  .reviews .section-title { color: var(--white); }
+  .reviews .section-label { color: var(--gold); }
+  .reviews .section-sub { color: #7a9ab5; }
+  .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .review-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    padding: 32px;
+    transition: background .25s, border-color .25s;
+    position: relative;
+  }
+  .review-card:hover { background: rgba(255,255,255,.07); border-color: rgba(212,130,26,.25); }
+  .review-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(240,168,48,.12); position: absolute; top: 10px; right: 20px; line-height: 1; }
+  .review-text { color: #b8c8d8; font-size: .92rem; line-height: 1.75; margin-bottom: 20px; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-size: .95rem; font-weight: 700; color: var(--white);
+  }
+  .review-name { font-weight: 600; color: var(--white); font-size: .9rem; }
+  .review-location { font-size: .78rem; color: var(--muted); }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: var(--off); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; counter-reset: step; }
+  .step {
+    padding: 36px 28px;
+    position: relative;
+    counter-increment: step;
+  }
+  .step::after {
+    content: '';
+    position: absolute;
+    top: 52px; right: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    pointer-events: none;
+  }
+  .step:last-child::after { display: none; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(212,130,26,.15);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-num::before { content: counter(step, decimal-leading-zero); }
+  .step-icon { font-size: 1.8rem; margin-bottom: 12px; }
+  .step h4 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .step p { font-size: .87rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: linear-gradient(135deg, #0d1b2a, #1c2d3f);
+    position: relative;
+    overflow: hidden;
+    padding: 90px 5%;
+    text-align: center;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(212,130,26,.15) 0%, transparent 70%);
+  }
+  .cta-banner h2 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); position: relative; margin-bottom: 16px; }
+  .cta-banner p { color: #8fadc5; font-size: 1.05rem; position: relative; margin-bottom: 36px; }
+  .cta-banner .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .cta-banner .btn-primary { font-size: 1.05rem; padding: 16px 36px; }
+  .cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    transition: color .2s;
+  }
+  .cta-phone:hover { color: var(--white); }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; }
+  .contact-cards { display: grid; gap: 20px; }
+  .contact-card {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--off);
+    border-radius: 10px;
+    padding: 22px;
+    border-left: 3px solid var(--accent);
+    transition: transform .2s;
+  }
+  .contact-card:hover { transform: translateX(4px); }
+  .contact-card-icon {
+    width: 46px; height: 46px; flex-shrink: 0;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; color: var(--white);
+  }
+  .contact-card h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; color: var(--navy); font-size: .95rem; margin-bottom: 4px; }
+  .contact-card p, .contact-card a { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+  .contact-card a:hover { color: var(--accent); }
+  .form-wrap {
+    background: var(--off);
+    border-radius: 12px;
+    padding: 40px;
+  }
+  .form-wrap h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 6px; }
+  .form-wrap p { font-size: .88rem; color: var(--muted); margin-bottom: 28px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .field label { font-size: .82rem; font-weight: 600; color: var(--navy); letter-spacing: .02em; }
+  .field input, .field select, .field textarea {
+    border: 1.5px solid #dde4ec;
+    border-radius: var(--radius);
+    padding: 11px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color .2s;
+    outline: none;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .submit-btn {
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+  .submit-btn:hover { background: var(--gold); transform: translateY(-1px); }
+  .submit-btn.success { background: #2a7d4f; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: #7a8a99;
+    padding: 70px 5% 0;
+  }
+  .footer-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 48px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .footer-brand p { font-size: .88rem; line-height: 1.75; margin: 16px 0 20px; color: #6a7a8a; }
+  .footer-socials { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: #7a8a99; font-size: .85rem;
+    transition: background .2s, border-color .2s, color .2s;
+  }
+  .social-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--white); }
+  .footer-col h5 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: .87rem; color: #6a7a8a; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-areas { display: flex; flex-wrap: wrap; gap: 8px; }
+  .area-tag {
+    font-size: .75rem;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    color: #6a7a8a;
+    padding: 4px 10px;
+    border-radius: 3px;
+    transition: background .2s, color .2s;
+  }
+  .area-tag:hover { background: rgba(212,130,26,.1); color: var(--gold); border-color: rgba(212,130,26,.2); }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding: 22px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .8rem;
+    color: #455565;
+  }
+  .footer-bottom a { color: #455565; transition: color .2s; }
+  .footer-bottom a:hover { color: var(--gold); }
+
+  /* ── MOBILE NAV ── */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,17,26,.97);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { color: var(--white); font-size: 1.4rem; font-family: 'Playfair Display', serif; }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: var(--white); font-size: 2rem; cursor: pointer; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav, .header-cta { display: none; }
+    .menu-toggle { display: block; }
+    .hero-content { grid-template-columns: 1fr; }
+    .offer-card { max-width: 480px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-image-wrap { order: -1; }
+    .why-image-wrap img { height: 320px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  }
+  @media (max-width: 600px) {
+    .topbar-left { gap: 12px; font-size: .75rem; }
+    .topbar-right .cta-pill { display: none; }
+    section { padding: 60px 5%; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .step::after { display: none; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.2 2 2 0 012.2.01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.18a16 16 0 006.29 6.29l1.54-1.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.07v2.85z"/></svg>
+      <a href="tel:512-305-3802">512-305-3802</a>
+    </span>
+    <span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.2 2 2 0 012.2.01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.18a16 16 0 006.29 6.29l1.54-1.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.07v2.85z"/></svg>
+      <a href="tel:936-443-4927">936-443-4927</a>
+    </span>
+    <span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <a href="mailto:sean@busseroofing.com">sean@busseroofing.com</a>
+    </span>
+  </div>
+  <div class="topbar-right">
+    <a href="https://busseroofing.com/" target="_blank" class="cta-pill">Free Roof Inspection →</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a href="https://busseroofing.com/" target="_blank" class="logo-wrap">
+    <svg class="logo-icon" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="46" height="46" rx="8" fill="#d4821a"/>
+      <path d="M23 8L6 22h5v16h24V22h5L23 8z" fill="white"/>
+      <rect x="19" y="28" width="8" height="10" fill="#d4821a"/>
+    </svg>
+    <div class="logo-text">
+      <span class="logo-name">Busse Roofing</span>
+      <span class="logo-sub">Central Texas</span>
+    </div>
+  </a>
+  <nav>
+    <a href="https://busseroofing.com/" target="_blank">Home</a>
+    <a href="https://busseroofing.com/" target="_blank">About</a>
+    <a href="https://busseroofing.com/" target="_blank">Services</a>
+    <a href="https://busseroofing.com/" target="_blank">Gallery</a>
+    <a href="https://busseroofing.com/" target="_blank">Reviews</a>
+    <a href="https://busseroofing.com/" target="_blank">Areas</a>
+  </nav>
+  <a href="https://busseroofing.com/" target="_blank" class="header-cta">Get Free Estimate</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="https://busseroofing.com/" target="_blank">Home</a>
+  <a href="https://busseroofing.com/" target="_blank">About Us</a>
+  <a href="https://busseroofing.com/" target="_blank">Services</a>
+  <a href="https://busseroofing.com/" target="_blank">Gallery</a>
+  <a href="https://busseroofing.com/" target="_blank">Reviews</a>
+  <a href="https://busseroofing.com/" target="_blank">Areas Served</a>
+  <a href="https://busseroofing.com/" target="_blank" class="btn-primary" style="padding:14px 32px;">Get Free Estimate</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-left reveal">
+      <span class="hero-eyebrow">Central Texas's Most Trusted Roofers</span>
+      <h1>Your Roof Deserves<br><em>Elite Craftsmanship</em></h1>
+      <p class="hero-sub">Busse Roofing delivers a higher standard of care for homes and businesses across Central Texas — from Cedar Park to Austin, Georgetown to Round Rock. Premium materials. Transparent pricing. Results that last.</p>
+      <div class="hero-btns">
+        <a href="https://busseroofing.com/" target="_blank" class="btn-primary">Get Your Free Estimate</a>
+        <a href="tel:512-305-3802" class="btn-outline">📞 Call 512-305-3802</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="icon">🏆</span> Top-Rated Contractor</div>
+        <div class="hero-badge"><span class="icon">🛡️</span> Fully Licensed & Insured</div>
+        <div class="hero-badge"><span class="icon">⚡</span> Fast Insurance Claims</div>
+      </div>
+    </div>
+    <div class="offer-card reveal" style="transition-delay:.15s">
+      <span class="offer-tag">🔥 Special Offer</span>
+      <h3>Free Roof Inspection + Report</h3>
+      <p>Get a complete inspection, written damage assessment, and no-pressure estimate — at zero cost to you. Storm damage? We handle the insurance process.</p>
+      <div class="offer-stats">
+        <div class="stat-item">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Roofs Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">5★</span>
+          <span class="stat-label">Google Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">16+</span>
+          <span class="stat-label">Cities Served</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+      </div>
+      <a href="https://busseroofing.com/" target="_blank" class="offer-btn">Claim Free Inspection →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Complete Roofing Solutions for <em>Every Property</em></h2>
+      <p class="section-sub">From single-family homes to large commercial facilities, Busse Roofing brings expert craftsmanship and premium materials to every project.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://busseroofing.com/wp-content/uploads/2025/08/imgi_2_commercial-slide1-640x837.jpg" alt="Residential Roofing" class="service-img-bg">
+          <div class="service-icon-badge">🏠</div>
+        </div>
+        <div class="service-body">
+          <h3>Residential Roofing</h3>
+          <p>Full-service residential roofing including installations, replacements, storm damage repairs, leak fixes, and routine maintenance — all using premium-grade materials built for Texas weather.</p>
+          <a href="https://busseroofing.com/" target="_blank" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.1s">
+        <div class="service-img">
+          <img src="https://busseroofing.com/wp-content/uploads/2026/05/High-Angle-Aerial-View-of-Flat-Commercial-Building-Roofs-in-an-Urban-Setting.webp" alt="Commercial Roofing" class="service-img-bg">
+          <div class="service-icon-badge">🏢</div>
+        </div>
+        <div class="service-body">
+          <h3>Commercial Roofing</h3>
+          <p>Durable commercial roofing solutions for businesses, warehouses, and retail properties. Long-lasting flat and pitched systems designed for performance and minimal maintenance.</p>
+          <a href="https://busseroofing.com/" target="_blank" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.2s">
+        <div class="service-img" style="background: linear-gradient(135deg, #1c2d3f, #0d1b2a); display:flex; align-items:center; justify-content:center; height:210px;">
+          <span style="font-size:4rem;">⛈️</span>
+        </div>
+        <div class="service-body">
+          <h3>Storm Damage & Insurance Claims</h3>
+          <p>Expert hail and storm damage inspections with full insurance claim support. We work directly with your insurer to get your claim approved and your roof restored fast.</p>
+          <a href="https://busseroofing.com/" target="_blank" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.3s">
+        <div class="service-img" style="background: linear-gradient(135deg, #1a2a1a, #0d1b0d); display:flex; align-items:center; justify-content:center; height:210px;">
+          <span style="font-size:4rem;">🔧</span>
+        </div>
+        <div class="service-body">
+          <h3>Roof Repair & Maintenance</h3>
+          <p>Quick, reliable roof repairs for leaks, missing shingles, flashing issues, and structural damage. Regular maintenance programs to extend your roof's lifespan and catch problems early.</p>
+          <a href="https://busseroofing.com/" target="_blank" class="service-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="reveal">
+        <p class="section-label">Why Busse Roofing</p>
+        <h2 class="section-title" style="margin-bottom:40px;">Built on <em>Integrity.</em><br>Defined by Quality.</h2>
+        <div class="why-features">
+          <div class="why-item">
+            <div class="why-icon">🎓</div>
+            <div>
+              <h4>Experienced Roofing Professionals</h4>
+              <p>Our skilled team delivers precise, expert roofing services across Cedar Park and all of Central Texas, ensuring every project meets the highest quality standards.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🏅</div>
+            <div>
+              <h4>Premium Materials Only</h4>
+              <p>We use manufacturer-certified, durable materials that guarantee long-lasting performance, structural strength, and protection against Texas heat and storms.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">💬</div>
+            <div>
+              <h4>Customer Satisfaction Guaranteed</h4>
+              <p>Clear communication, transparent pricing, and professional service from first call to final inspection. We don't leave until you're completely satisfied.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📋</div>
+            <div>
+              <h4>Insurance Claim Specialists</h4>
+              <p>Navigating insurance claims is stressful. We handle the entire process — documentation, adjuster meetings, and approvals — so you don't have to.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-image-wrap reveal" style="transition-delay:.15s">
+        <img src="https://busseroofing.com/wp-content/uploads/2025/08/487827016_2087262368415462_8993800954324694710_n-1.jpg" alt="Busse Roofing Team">
+        <div class="why-badge-over">
+          <span class="num">5★</span>
+          <span class="lbl">Rated on Google</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="section-inner">
+    <div class="section-header centered reveal">
+      <p class="section-label">Customer Reviews</p>
+      <h2 class="section-title">What Central Texas<br>Homeowners Are Saying</h2>
+      <p class="section-sub">Trusted by hundreds of families and businesses across Cedar Park, Austin, Round Rock, and beyond.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Busse Roofing did an outstanding job replacing our roof after hail damage. Sean and his team were professional, fast, and handled everything with our insurance company. The new roof looks amazing — we couldn't be happier!"</p>
+        <div class="review-author">
+          <div class="review-avatar">JM</div>
+          <div>
+            <div class="review-name">Jennifer M.</div>
+            <div class="review-location">Cedar Park, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:.1s">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"From the free inspection to the final cleanup, Busse Roofing was first-class all the way. They communicated every step, finished ahead of schedule, and the quality of work is excellent. Highly recommend for any Central Texas homeowner."</p>
+        <div class="review-author">
+          <div class="review-avatar">TR</div>
+          <div>
+            <div class="review-name">Thomas R.</div>
+            <div class="review-location">Georgetown, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:.2s">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"We had storm damage and were overwhelmed by the insurance process. Busse Roofing stepped in, handled everything, and we got a brand-new roof at no out-of-pocket cost. Professional, honest, and incredibly thorough."</p>
+        <div class="review-author">
+          <div class="review-avatar">SL</div>
+          <div>
+            <div class="review-name">Sarah L.</div>
+            <div class="review-location">Round Rock, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:.3s">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Used Busse Roofing for our commercial building in Austin. The crew was punctual, respectful of our business operations, and delivered top-quality work. The roof was completed on time and on budget — exactly what you want."</p>
+        <div class="review-author">
+          <div class="review-avatar">DK</div>
+          <div>
+            <div class="review-name">David K.</div>
+            <div class="review-location">Austin, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:.4s">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Got three quotes and Busse was the most transparent and fair. No hidden fees, no pressure tactics — just honest pricing and exceptional workmanship. My neighbors have already asked for their number!"</p>
+        <div class="review-author">
+          <div class="review-avatar">MP</div>
+          <div>
+            <div class="review-name">Maria P.</div>
+            <div class="review-location">Leander, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:.5s">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Fast response after the storm, thorough inspection, and quality installation. The team cleaned up everything perfectly when done. Busse Roofing earns every star — I wouldn't use anyone else in the future."</p>
+        <div class="review-author">
+          <div class="review-avatar">BW</div>
+          <div>
+            <div class="review-name">Brian W.</div>
+            <div class="review-location">Pflugerville, TX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-inner">
+    <div class="section-header centered reveal">
+      <p class="section-label">Our Process</p>
+      <h2 class="section-title">How It Works — <em>Simple &amp; Stress-Free</em></h2>
+      <p class="section-sub">From your first call to the final walkthrough, we make roofing easy. Here's exactly what to expect.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num"></div>
+        <div class="step-icon">📞</div>
+        <h4>Contact Us</h4>
+        <p>Call, text, or fill out our form. We'll schedule your free inspection within 24 hours at a time that works for you.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.1s">
+        <div class="step-num"></div>
+        <div class="step-icon">🔍</div>
+        <h4>Free Inspection</h4>
+        <p>Our certified inspector thoroughly examines your roof and provides a detailed written report with photos — no cost, no obligation.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.2s">
+        <div class="step-num"></div>
+        <div class="step-icon">📄</div>
+        <h4>Estimate & Insurance</h4>
+        <p>We present a transparent, itemized quote. If you have storm damage, we work with your insurance adjuster on your behalf.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.3s">
+        <div class="step-num"></div>
+        <div class="step-icon">🏗️</div>
+        <h4>Expert Installation</h4>
+        <p>Our skilled crew arrives on time, works efficiently, and uses only premium materials. Your property is protected throughout the project.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.4s">
+        <div class="step-num"></div>
+        <div class="step-icon">✅</div>
+        <h4>Final Walkthrough</h4>
+        <p>We do a full walkthrough with you, ensure complete cleanup, and go over your warranty. You're protected for years to come.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="section-inner reveal">
+    <h2>Ready for a Roof You Can<br>Trust for Decades?</h2>
+    <p>Get your free, no-obligation roof inspection today. Serving Cedar Park, Austin, Georgetown,<br>Round Rock, Leander, and all of Central Texas.</p>
+    <div class="btn-group">
+      <a href="https://busseroofing.com/" target="_blank" class="btn-primary">Get Free Estimate Today</a>
+      <a href="tel:512-305-3802" class="cta-phone">📞 512-305-3802</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <p class="section-label">Contact Us</p>
+      <h2 class="section-title">Reach Out for Fast,<br><em>Reliable Support</em></h2>
+      <p class="section-sub">Get in touch for prompt, professional assistance. Quick estimates, expert advice, and dependable roofing solutions every time.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <div>
+            <h4>Our Location</h4>
+            <p>818 Arrowhead Trail<br>Cedar Park, TX 78613</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div>
+            <h4>Call Us</h4>
+            <a href="tel:512-305-3802">512-305-3802</a><br>
+            <a href="tel:936-443-4927">936-443-4927</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">✉️</div>
+          <div>
+            <h4>Email Us</h4>
+            <a href="mailto:sean@busseroofing.com">sean@busseroofing.com</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">🕐</div>
+          <div>
+            <h4>Business Hours</h4>
+            <p>Mon–Fri: 8:00 AM – 6:00 PM<br>Sat: 9:00 AM – 3:00 PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-wrap reveal" style="transition-delay:.15s">
+        <h3>Get a Free Estimate</h3>
+        <p>Fill out the form and we'll get back to you within 1 business day.</p>
+        <div class="form-row">
+          <div class="field">
+            <label>First Name</label>
+            <input type="text" placeholder="John">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(512) 000-0000">
+          </div>
+          <div class="field">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@email.com">
+          </div>
+        </div>
+        <div class="field">
+          <label>Service Needed</label>
+          <select>
+            <option value="">Select a Service</option>
+            <option>Residential Roofing</option>
+            <option>Commercial Roofing</option>
+            <option>Storm / Hail Damage Inspection</option>
+            <option>Roof Repair</option>
+            <option>Insurance Claim Assistance</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Tell Us About Your Project</label>
+          <textarea placeholder="Describe your roofing needs, any damage, your address, etc."></textarea>
+        </div>
+        <button class="submit-btn" id="submitBtn" onclick="handleSubmit(this)">Send My Free Estimate Request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="https://busseroofing.com/" target="_blank" class="logo-wrap">
+        <svg class="logo-icon" viewBox="0 0 46 46" fill="none">
+          <rect width="46" height="46" rx="8" fill="#d4821a"/>
+          <path d="M23 8L6 22h5v16h24V22h5L23 8z" fill="white"/>
+          <rect x="19" y="28" width="8" height="10" fill="#d4821a"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">Busse Roofing</span>
+          <span class="logo-sub">Central Texas</span>
+        </div>
+      </a>
+      <p>Premium residential and commercial roofing services across Central Texas. A higher standard of care for every roof, every time.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/busseroofing" target="_blank" class="social-btn" title="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://busseroofing.com/" target="_blank" class="social-btn" title="Google Maps">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </a>
+        <a href="https://busseroofing.com/" target="_blank" class="social-btn" title="Yelp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.58L19 9l-8 8z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul class="footer-links">
+        <li><a href="https://busseroofing.com/" target="_blank">Home</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">About Us</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Services</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Our Gallery</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Reviews</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Blog</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul class="footer-links">
+        <li><a href="https://busseroofing.com/" target="_blank">Residential Roofing</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Commercial Roofing</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Storm Damage Repair</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Hail Damage Claims</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Roof Replacement</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Roof Inspection</a></li>
+        <li><a href="https://busseroofing.com/" target="_blank">Roof Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Areas We Serve</h5>
+      <div class="footer-areas">
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Cedar Park</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Austin</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Georgetown</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Round Rock</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Leander</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Pflugerville</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Buda</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Kyle</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Lakeway</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Liberty Hill</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Belton</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Temple</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Harker Heights</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Salado</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Jarrell</a>
+        <a href="https://busseroofing.com/" target="_blank" class="area-tag">Copperas Cove</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 <a href="https://busseroofing.com/" target="_blank">Busse Roofing</a>. All Rights Reserved.</span>
+    <span>818 Arrowhead Trail, Cedar Park, TX 78613 &nbsp;|&nbsp; <a href="tel:512-305-3802">512-305-3802</a></span>
+  </div>
+</footer>
+
+<script>
+  // Sticky header scroll shadow
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile nav
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.add('open');
+  });
+  document.getElementById('mobileClose').addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.remove('open');
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => io.observe(r));
+
+  // Form submit success
+  function handleSubmit(btn) {
+    btn.textContent = '✓ Request Sent! We\'ll Contact You Soon.';
+    btn.classList.add('success');
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
